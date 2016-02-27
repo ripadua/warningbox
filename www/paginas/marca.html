@@ -45,8 +45,8 @@
             <a href="#outside" data-icon="bars" data-iconpos="notext">Menu</a>
         </div>
 
-        <div role="main" class="ui-content">
-            <form id="formProduto">
+        <div id="divForm" role="main" class="ui-content" style="display: none">
+            <form id="formMarca">
 
                 <br>
 
@@ -55,14 +55,28 @@
                 <br>
 
                 <label for="nome"type >Nome:</label>
-                <input type="text" autofocus="nome" id"nome" class="campos" placeholder="Nome do produto">
+                <input type="text" autofocus="nome" id"marca_nomeMarca" class="campos" placeholder="Nome da marca" name="marca[nomeMarca]">
 
                 <br><br>
 
-                <button type="submit" onclick="salvar()"><span>Adicionar</span></button>
+                <button onclick="salvar(); return false;"><span>Adicionar</span></button>
+                <button onclick="cancelar(); return false;"><span>Cancelar</span></button>
+
 
                 <br><br>
             </form>
+        </div>
+
+        <div id="divLista" role="main" class="ui-content">
+
+            <h2>Marcas</h2>
+
+            <ul data-role="listview" data-inset="true" id="listviewMarcas">
+                
+            </ul>
+
+            <button onclick="criar()"><span>Novo</span></button>
+
         </div>
 
         <div data-role="footer" data-theme="b" data-position="fixed" >
@@ -81,5 +95,9 @@
                 <li>Sobre</li>
             </ul>
         </div>
+
+        <script type="text/javascript">
+            listar();
+        </script>
     </body>
 </html>
