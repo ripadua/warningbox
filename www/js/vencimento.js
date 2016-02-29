@@ -1,5 +1,6 @@
 function salvar() {
     alert('Vencimento inserido com sucesso!');
+    window.location.href='../index.html';
 }
 
 function camSuccess(imgData) {
