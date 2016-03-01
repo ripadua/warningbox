@@ -35,17 +35,21 @@
 
             <br>
 
-            <button id="btnCam" onclick="accessCamera()">Capturar Imagem</button> 
+            <button id="btnCam" onclick="accessCamera()">Capturar Imagem</button>
+            <button id="btnCam" onclick="accessCameraAlbum()">Escolher imagem do album</button>
             
             <br>
             
-            <form id="formProduto">
+            <form id="formVencimento">
                 <label for="data">Vencimento:</label>
-                <input type="date" name="vencimento[dataProduto]" id="data" >
+                <input type="date" name="vencimento[dataVencimento]" id="data" >
                 
                 <br>
                 
-                <img id="imagem" style="width: 100%; height: 40%;"  />
+                <img id="imagem" style="width: 100%; height: 40%;" src=""/>
+                <input type="hidden" name="vencimento[imagem]" id="inputimagem" >
+                
+                
 
                 <br><br>
 

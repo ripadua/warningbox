@@ -34,16 +34,28 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        listar();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        //var parentElement = document.getElementById(id);
+        //var listeningElement = parentElement.querySelector('.listening');
+        //var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        //listeningElement.setAttribute('style', 'display:none;');
+        //receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+        //console.log('Received Event: ' + id);
     }
 };
+
+function listar() {
+	$.get("http://warningbox-ripadua.c9users.io/vencimentos.json").done(function (msg) {
+        var listview = $('#listview');
+        listview.empty();
+        for (var i = 0; i < msg.length; i++) {
+		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + msg[i].dataVencimento + '</h4></li>');
+        }
+		listview.listview('refresh');
+    });
+}
