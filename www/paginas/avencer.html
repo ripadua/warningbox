@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -16,44 +16,31 @@
         <script src="../js/jquery.mobile-1.4.5.min.js"></script>
 
         <script src="../js/vencimento.js"></script>
+        <script src="../js/avencer.js"></script>
 
         <title>WarningBox</title>
     </head>
     
     <body>
 
-        <div data-role="header" data-theme="b" data-position="fixed" >
+        <div data-role="header" data-theme="b" data-position="fixed">
             <h1>WarningBox</h1>
             <a href="#outside" data-icon="bars" data-iconpos="notext">Menu</a>
         </div>
+        
+       <div role="main" class="ui-content">
+            <form id="formProduto">
 
-        <div role="main" class="ui-content">
-            
-            <br>
+                <br>
 
-            <h2>Cadastrar Produto</h2>
+                <h2>Produtos A Vencer</h2>
 
-            <br>
-
-            <button id="btnCam" onclick="accessCamera(event);">Capturar Imagem</button>
-            <button id="btnCam" onclick="accessCameraAlbum(event);">Escolher imagem do album</button>
-            
-            <br>
-            
-            <form id="formVencimento">
-                <label for="data">Vencimento:</label>
-                <input type="date" name="vencimento[dataVencimento]" id="data" >
-                
                 <br>
                 
-                <img id="imagem" style="width: 100%; height: 40%;" src=""/>
-                <input type="hidden" name="vencimento[imagem]" id="inputimagem" >
-                
-                
+                <button onclick="window.location.href='paginas/vencimento.html';">Cadastrar Produto</button>
 
-                <br><br>
-
-                <button onclick="salvar(event);"><span>Adicionar</span></button>
+                <ul data-role="listview" data-inset="true" id="listview">
+                </ul>
 
                 <br><br>
             </form>
@@ -67,11 +54,15 @@
             <ul data-role="listview">
                 <li data-icon="back"><a href="#" data-rel="close">Fechar</a></li>
                 <li><a href="vencimento.html" data-ajax="false">Produto</a></li>
-                <!-- <li><a href="produto.html" data-ajax="false">Cadastrar Produto</a></li>
-                <li><a href="marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
+                <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
+                <li><a href="paginas/marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
                 <li><a href="../index.html" data-ajax="false">Vencidos</a></li>
                 <li><a href="avencer.html" data-ajax="false">A Vencer</a></li>
             </ul>
         </div>
+
+        <script type="text/javascript">
+            listar();
+        </script>
     </body>
 </html>

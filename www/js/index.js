@@ -50,11 +50,11 @@ var app = {
 };
 
 function listar() {
-	$.get("http://warningbox-ripadua.c9users.io/vencimentos.json").done(function (msg) {
+	$.get("http://warningbox-ripadua.c9users.io/vencidos.json").done(function (msg) {
         var listview = $('#listview');
         listview.empty();
         for (var i = 0; i < msg.length; i++) {
-		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + msg[i].dataVencimento + '</h4></li>');
+		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + (msg[i].diferencaDeDias * -1) + ' dia(s) vencido</h4></li>');
         }
 		listview.listview('refresh');
     });
