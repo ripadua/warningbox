@@ -1,9 +1,26 @@
 function salvar(e) {
     e.preventDefault();
-    $.post("https://warningbox-ripadua.c9users.io/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
-        alert('Vencimento inserido com sucesso');
-        window.location.href='../index.html';
-    });
+
+    var passouValidacao = true;
+
+    var imagem = $("#inputimagem").val();
+    if (imagem == undefined) {
+    	alert('Por favor insira uma imagem do produto.');	
+        passouValidacao = false;
+    }
+
+    var data = $("#data").val();
+    if (data == undefined || data == "") {
+    	alert('Por favor informe a data de vencimento do produto.');
+        passouValidacao = false;
+    }
+
+    if (passouValidacao) {
+        $.post("https://warningbox-ripadua.c9users.io/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
+            alert('Vencimento inserido com sucesso');
+            window.location.href='../index.html';
+        });
+    }
 }
 
 function camSuccess(imgData) {

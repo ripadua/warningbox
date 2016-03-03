@@ -34,6 +34,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        var email = localStorage.email;
+        if (email == undefined) {
+            window.location.href='login.html';
+        }
         listar();
     },
     // Update DOM on a Received Event

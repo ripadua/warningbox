@@ -11,7 +11,7 @@
        Waltenes Jr.
     </author>
    
-    <content src="index.html" />
+    <content src="login.html" />
    
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
