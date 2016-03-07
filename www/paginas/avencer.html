@@ -15,7 +15,6 @@
         <script src="../js/jquery-1.11.1.min.js"></script>
         <script src="../js/jquery.mobile-1.4.5.min.js"></script>
 
-        <script src="../js/vencimento.js"></script>
         <script src="../js/avencer.js"></script>
 
         <title>WarningBox</title>
@@ -36,8 +35,12 @@
                 <h2>Produtos A Vencer</h2>
 
                 <br>
+
+                <span id="nenhumvencido" style="display: none">Nenhum produto a vencer</span>
+
+                <br><br>
                 
-                <button onclick="window.location.href='paginas/vencimento.html';">Cadastrar Produto</button>
+                <button onclick="criar(event)">Cadastrar Produto</button>
 
                 <ul data-role="listview" data-inset="true" id="listview">
                 </ul>
@@ -52,7 +55,8 @@
 
         <div data-role="panel" id="outside" data-theme="b">
             <ul data-role="listview">
-                <li data-icon="back"><a href="#" data-rel="close">Fechar</a></li>
+                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='../index.html'" data-rel="close">Sair</a></li>
+                <li><a href="estabelecimento.html" data-ajax="false">Estabelecimentos</a></li>
                 <li><a href="vencimento.html" data-ajax="false">Produto</a></li>
                 <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
                 <li><a href="paginas/marca.html" data-ajax="false">Cadastrar Marca</a></li> -->

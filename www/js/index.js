@@ -37,6 +37,11 @@ var app = {
         var email = localStorage.email;
         if (email == undefined) {
             window.location.href='login.html';
+        } else {
+            var estabelecimento = localStorage.estabelecimento_id;
+            if (estabelecimento == undefined) {
+                window.location.href='paginas/estabelecimento.html';    
+            } 
         }
         listar();
     },
@@ -54,12 +59,20 @@ var app = {
 };
 
 function listar() {
-	$.get("http://warningbox-ripadua.c9users.io/vencidos.json").done(function (msg) {
+    var estabelecimento_id = localStorage.estabelecimento_id;
+    $.mobile.loading("show");
+	$.get("http://warningbox-ripadua.c9users.io/vencidos.json?estabelecimento_id=" + estabelecimento_id).done(function (msg) {
         var listview = $('#listview');
         listview.empty();
-        for (var i = 0; i < msg.length; i++) {
-		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + (msg[i].diferencaDeDias * -1) + ' dia(s) vencido</h4></li>');
+        if (msg.length == 0) {
+            $("#nenhumvencido").show();
+        } else {
+            $("#nenhumvencido").hide();
+            for (var i = 0; i < msg.length; i++) {
+    		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + (msg[i].diferencaDeDias * -1) + ' dia(s) vencido</h4></li>');
+            }
         }
 		listview.listview('refresh');
+        $.mobile.loading("hide");
     });
 }

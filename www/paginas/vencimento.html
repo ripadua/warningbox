@@ -47,13 +47,13 @@
                 <br>
                 
                 <img id="imagem" style="width: 100%; height: 40%;" src=""/>
-                <input type="hidden" name="vencimento[imagem]" id="inputimagem" >
+                <input type="hidden" name="vencimento[imagem]" id="inputimagem" />
                 
-                
+                <input type="hidden" name="vencimento[estabelecimento_id]" value="" id="estabelecimento"/>
 
                 <br><br>
 
-                <button onclick="salvar(event);"><span>Adicionar</span></button>
+                <button onclick="salvar(event);"><span>Salvar</span></button>
 
                 <br><br>
             </form>
@@ -65,13 +65,16 @@
 
         <div data-role="panel" id="outside" data-theme="b">
             <ul data-role="listview">
-                <li data-icon="back"><a href="#" data-rel="close">Fechar</a></li>
+                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='../index.html'" data-rel="close">Sair</a></li>
+                <li><a href="estabelecimento.html" data-ajax="false">Estabelecimentos</a></li>
                 <li><a href="vencimento.html" data-ajax="false">Produto</a></li>
-                <!-- <li><a href="produto.html" data-ajax="false">Cadastrar Produto</a></li>
-                <li><a href="marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
+                <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
+                <li><a href="paginas/marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
                 <li><a href="../index.html" data-ajax="false">Vencidos</a></li>
                 <li><a href="avencer.html" data-ajax="false">A Vencer</a></li>
             </ul>
         </div>
-    </body>
+        <script type="text/javascript">
+            carregar();
+        </script>
 </html>

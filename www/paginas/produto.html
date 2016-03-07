@@ -72,14 +72,13 @@
 
         <div data-role="panel" id="outside" data-theme="b">
             <ul data-role="listview">
-                <li data-icon="back"><a href="#" data-rel="close">Fechar</a></li>
-                <li><a href="../index.html" data-ajax="false">Home</a></li>
-                <li><a href="vencimento.html" data-ajax="false">Cadastrar Vencimento</a></li>
-                <li><a href="produto.html" data-ajax="false">Cadastrar Produto</a></li>
-                <li><a href="marca.html" data-ajax="false">Cadastrar Marca</a></li>
-                <li>Produtos a Vencer</li>
-                <li>Produtos Vencidos</li>
-                <li>Sobre</li>
+                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='index.html'" data-rel="close">Sair</a></li>
+                <li><a href="paginas/estabelecimento.html" data-ajax="false">Estabelecimentos</a></li>
+                <li><a href="paginas/vencimento.html" data-ajax="false">Produto</a></li>
+                <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
+                <li><a href="paginas/marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
+                <li><a href="index.html" data-ajax="false">Vencidos</a></li>
+                <li><a href="paginas/avencer.html" data-ajax="false">A Vencer</a></li>
             </ul>
         </div>
     </body>
