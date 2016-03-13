@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+       
+        <script type="text/javascript" src="../cordova.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+        <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css" />
+       
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+
+        <script src="../js/avencer.js"></script>
+
+        <title>WarningBox</title>
+    </head>
+    
+    <body>
+
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <h1>WarningBox</h1>
+            <a href="#outside" data-icon="bars" data-iconpos="notext">Menu</a>
+        </div>
+        
+       <div role="main" class="ui-content">
+            <form id="formProduto">
+
+                <br>
+
+                <h2>Produtos A Vencer</h2>
+
+                <br>
+
+                <span id="nenhumvencido" style="display: none">Nenhum produto a vencer</span>
+
+                <br><br>
+                
+                <button onclick="criar(event)">Cadastrar Produto</button>
+
+                <ul data-role="listview" data-inset="true" id="listview">
+                </ul>
+
+                <br><br>
+            </form>
+        </div>
+
+        <div data-role="footer" data-theme="b" data-position="fixed" >
+            <h4>warningbox.com.br</h4>
+        </div><!-- /footer -->
+
+        <div data-role="panel" id="outside" data-theme="b">
+            <ul data-role="listview">
+                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='../index.html'" data-rel="close">Sair</a></li>
+                <li><a href="estabelecimento.html" data-ajax="false">Estabelecimentos</a></li>
+                <li><a href="vencimento.html" data-ajax="false">Produto</a></li>
+                <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
+                <li><a href="paginas/marca.html" data-ajax="false">Cadastrar Marca</a></li> -->
+                <li><a href="../index.html" data-ajax="false">Vencidos</a></li>
+                <li><a href="avencer.html" data-ajax="false">A Vencer</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+            listar();
+        </script>
+    </body>
+</html>
