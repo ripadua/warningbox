@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.warningbox"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.warningbox"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.warningbox"
+        }
+    },
+    "dependent_plugins": {}
+}
