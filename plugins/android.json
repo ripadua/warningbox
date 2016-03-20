@@ -14,6 +14,7 @@
             "PACKAGE_NAME": "com.warningbox"
         },
         "phonegap-plugin-push": {
+            "SENDER_ID": "1016161579638",
             "PACKAGE_NAME": "com.warningbox"
         }
     },

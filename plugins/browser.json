@@ -7,10 +7,14 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.warningbox"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.warningbox"
         },
-        "cordova-plugin-camera": {
+        "phonegap-plugin-push": {
+            "SENDER_ID": "1016161579638",
             "PACKAGE_NAME": "com.warningbox"
         }
     },
