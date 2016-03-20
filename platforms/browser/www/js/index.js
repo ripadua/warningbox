@@ -43,8 +43,8 @@ var app = {
 //            if (estabelecimento == undefined) {
 //                window.location.href='paginas/estabelecimento.html';    
 //            } 
-//            listar();
 //        }
+        listar();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
