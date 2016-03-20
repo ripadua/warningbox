@@ -10,7 +10,15 @@ function listar() {
 	        } else {
 	            $("#nenhumvencido").hide();
 		        for (var i = 0; i < msg.length; i++) {
-				  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + msg[i].diferencaDeDias + ' dia(s) para vencer</h4></li>');
+				  var novoproduto = 
+                    '<li produto="' + msg[i].id + '">' +
+                        '<a href="#">' +
+                            '<img src="data:image/jpeg;base64,' + msg[i].imagem + '" />' +
+                            '<h4>' + msg[i].diferencaDeDias + ' dia(s) para vencer</h4>' +
+                        '</a>' +
+                        '<a href="#" onclick="remover(event)">Remover produto</a>' +
+                    '</li>';
+				  listview.append(novoproduto);
 		        }
 		    }
 			listview.listview('refresh');
@@ -25,4 +33,27 @@ function listar() {
 function criar(e) {
 	e.preventDefault();
 	window.location.href='vencimento.html';
+}
+
+function remover(e) {
+    e.preventDefault();
+    if (confirm('O produto será removido da base de dados. Confirma remoção do produto?')) {
+        var idProduto = e.target.parentElement.getAttribute('produto');
+        var elem = e.target.parentElement;
+        elem.parentNode.removeChild(elem);
+        $.ajax({
+            url: 'http://warningbox-ripadua.c9users.io/vencimentos/' + idProduto + '.json',
+            type: 'DELETE',
+            success: function(result) {
+                alert('Produto removido com sucesso.');
+                window.location.href='avencer.html';
+            },
+            fail: function(result) {
+                alert('Ocorreu um erro ao excluir o produto. Tente novamente');
+            }
+        });
+    } else {
+
+    }
+
 }

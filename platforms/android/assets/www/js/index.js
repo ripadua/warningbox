@@ -43,8 +43,8 @@ var app = {
 //            if (estabelecimento == undefined) {
 //                window.location.href='paginas/estabelecimento.html';    
 //            } 
-//            listar();
 //        }
+        listar();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -93,8 +93,8 @@ function remover(e) {
         var elem = e.target.parentElement;
         elem.parentNode.removeChild(elem);
         $.ajax({
-            url: 'http://warningbox-ripadua.c9users.io/vencimentos/' + idProduto,
-            type: 'delete',
+            url: 'http://warningbox-ripadua.c9users.io/vencimentos/' + idProduto + '.json',
+            type: 'DELETE',
             success: function(result) {
                 alert('Produto removido com sucesso.');
                 window.location.href='index.html';

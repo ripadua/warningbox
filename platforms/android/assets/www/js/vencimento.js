@@ -18,7 +18,7 @@ function salvar(e) {
     if (passouValidacao) {
         $.mobile.loading("show");
         $.post("https://warningbox-ripadua.c9users.io/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
-            alert('Vencimento inserido com sucesso');
+            alert('Produto inserido com sucesso');
             window.location.href='../index.html';
         }).fail(function (msg) {
             alert('Ocorreu um erro ao salvar o produto. Por favor tente novamente.');
