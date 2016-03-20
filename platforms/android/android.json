@@ -53,11 +53,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.warningbox.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.warningbox.permission.C2D_MESSAGE\" />",
                             "count": 1
                         }
                     ],
@@ -67,7 +67,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:exported=\"true\" android:name=\"com.google.android.gms.gcm.GcmReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"${applicationId}\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.adobe.phonegap.push.BackgroundActionButtonHandler\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:exported=\"true\" android:name=\"com.google.android.gms.gcm.GcmReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"com.warningbox\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
@@ -84,6 +88,16 @@
                         }
                     ]
                 }
+            },
+            "res/values/strings.xml": {
+                "parents": {
+                    "/resources": [
+                        {
+                            "xml": "<string name=\"google_app_id\">1016161579638</string>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
@@ -95,6 +109,7 @@
             "PACKAGE_NAME": "com.warningbox"
         },
         "phonegap-plugin-push": {
+            "SENDER_ID": "1016161579638",
             "PACKAGE_NAME": "com.warningbox"
         }
     },
@@ -150,6 +165,6 @@
     "plugin_metadata": {
         "cordova-plugin-camera": "2.1.0",
         "cordova-plugin-whitelist": "1.2.1",
-        "phonegap-plugin-push": "1.5.3"
+        "phonegap-plugin-push": "1.6.0"
     }
 }
