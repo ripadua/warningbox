@@ -16,25 +16,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-      
-        var push = PushNotification.init({
-            "android": {
-                "senderID": "1016161579638"
-            }
-        });
-        
-        push.on('registration', function(data) {
-            document.getElementById("inputIdPush").innerHTML = data.registrationId;
-        });
-
-        push.on('notification', function(data) {
-        });
-
-        push.on('error', function(e) {
-            console.log("Falha na notificação");
-        });
-
-        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -42,12 +23,35 @@ var app = {
     		$("#email").val(localStorage.email);
     		localStorage.email = "";
     	}
+
+        console.log('Received Event: ' + id);
+        var push = PushNotification.init({
+            android: {
+                senderID: "1016161579638"
+            }
+        });
+
+        console.log('depois do init');
+
+        push.on('registration', function(data) {
+            localStorage.registrationid = data.registrationId;
+            console.log(data.registrationId);
+        });
+
+        push.on('notification', function(data) {
+            
+        });
+
+        push.on('error', function(e) {
+            console.log(e.message);
+        });
     }
 };
 
 function entrar(e) {
 	e.preventDefault();
-	var email = $("#email").val();
+    $("#inputIdPush").val(localStorage.registrationid);
+    var email = $("#email").val();
 	if (email == undefined || email == "") {
 		alert('Insira o seu endereço de e-mail para entrar.');
 	} else {

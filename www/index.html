@@ -43,7 +43,7 @@
 
                 <button onclick="window.location.href='paginas/vencimento.html';">Cadastrar Produto</button>
 
-                <ul data-role="listview" data-inset="true" id="listview">
+                <ul data-role="listview" data-split-icon="delete" data-split-theme="a" data-inset="true" id="listview">
                 </ul>
 
                 <br><br>
@@ -56,7 +56,7 @@
 
         <div data-role="panel" id="outside" data-theme="b">
             <ul data-role="listview">
-                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='index.html'" data-rel="close">Sair</a></li>
+                <li data-icon="back"><a href="#" onclick="localStorage.clear();window.location.href='login.html'" data-rel="close">Sair</a></li>
                 <li><a href="paginas/estabelecimento.html" data-ajax="false">Estabelecimentos</a></li>
                 <li><a href="paginas/vencimento.html" data-ajax="false">Produto</a></li>
                 <!-- <li><a href="paginas/produto.html" data-ajax="false">Cadastrar Produto</a></li>
@@ -64,6 +64,13 @@
                 <li><a href="index.html" data-ajax="false">Vencidos</a></li>
                 <li><a href="paginas/avencer.html" data-ajax="false">A Vencer</a></li>
             </ul>
+        </div>
+
+        <div data-role="popup" id="remover" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+            <h3>Remover produto?</h3>
+            <p>O produto será removido da base de dados.</p>
+                <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" onclick="remover(event)">Remover</a>
+                <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancelar</a>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>

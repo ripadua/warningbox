@@ -34,16 +34,17 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var email = localStorage.email;
-        if (email == undefined) {
-            window.location.href='login.html';
-        } else {
-            var estabelecimento = localStorage.estabelecimento_id;
-            if (estabelecimento == undefined) {
-                window.location.href='paginas/estabelecimento.html';    
-            } 
-        }
-        listar();
+
+//        var email = localStorage.email;
+//        if (email == undefined) {
+//            window.location.href='login.html';
+//        } else {
+//            var estabelecimento = localStorage.estabelecimento_id;
+//            if (estabelecimento == undefined) {
+//                window.location.href='paginas/estabelecimento.html';    
+//            } 
+//            listar();
+//        }
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -54,7 +55,7 @@ var app = {
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
 
-        //console.log('Received Event: ' + id);
+        
     }
 };
 
@@ -69,10 +70,43 @@ function listar() {
         } else {
             $("#nenhumvencido").hide();
             for (var i = 0; i < msg.length; i++) {
-    		  listview.append('<li><img src="data:image/jpeg;base64,' + msg[i].imagem + '" /> <h4>' + (msg[i].diferencaDeDias * -1) + ' dia(s) vencido</h4></li>');
+                var novoproduto = 
+                    '<li produto="' + msg[i].id + '">' +
+                        '<a href="#">' +
+                            '<img src="data:image/jpeg;base64,' + msg[i].imagem + '" />' +
+                            '<h4>' + (msg[i].diferencaDeDias * -1) + ' dia(s) vencido</h4>' +
+                        '</a>' +
+                        '<a href="#" onclick="remover(event)">Remover produto</a>' +
+                    '</li>';
+    		  listview.append(novoproduto);
             }
         }
 		listview.listview('refresh');
         $.mobile.loading("hide");
     });
+};
+
+function remover(e) {
+    e.preventDefault();
+    if (confirm('O produto será removido da base de dados. Confirma remoção do produto?')) {
+        var idProduto = e.target.parentElement.getAttribute('produto');
+        var elem = e.target.parentElement;
+        elem.parentNode.removeChild(elem);
+        $.ajax({
+            url: 'http://warningbox-ripadua.c9users.io/vencimentos/' + idProduto,
+            type: 'DELETE',
+            success: function(result) {
+                alert('Produto removido com sucesso.');
+                window.location.href='index.html';
+            },
+            fail: function(result) {
+                alert('Ocorreu um erro ao excluir o produto. Tente novamente');
+            }
+        });
+    } else {
+
+    }
+
 }
+
+
