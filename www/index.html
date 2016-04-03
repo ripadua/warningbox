@@ -28,26 +28,28 @@
             <span id="nomeEstabelecimento"></span>
         </div>
         
-       <div role="main" class="ui-content">
-            <form id="formProduto">
+       <div role="main" class="ui-content" >
 
-                <br>
+            <br>
 
-                <h2>Produtos Vencidos</h2>
+            <h2>Produtos Vencidos</h2>
 
-                <br>
+            <br>
+            
+            <span id="nenhumvencido" style="display: none">Nenhum produto vencido</span>
+
+            <br><br>
+
+            <button onclick="window.location.href='paginas/vencimento.html';">Cadastrar Produto</button>
+
+            <ul data-role="listview" id="listview" data-inset="true" data-split-icon="delete" data-split-theme="a">
+                        
+            </ul>
+
+            <div id="popup">
                 
-                <span id="nenhumvencido" style="display: none">Nenhum produto vencido</span>
-
-                <br><br>
-
-                <button onclick="window.location.href='paginas/vencimento.html';">Cadastrar Produto</button>
-
-                <ul data-role="listview" data-split-icon="delete" data-split-theme="a" data-inset="true" id="listview">
-                </ul>
-
-                <br><br>
-            </form>
+            </div>
+            <br><br>
         </div>
 
         <div data-role="footer" data-theme="b" data-position="fixed" >
@@ -65,13 +67,6 @@
                 <li><a href="paginas/avencer.html" data-ajax="false">A Vencer</a></li>
                 <li><a href="paginas/ajuda.html" data-ajax="false">Ajuda</a></li>
             </ul>
-        </div>
-
-        <div data-role="popup" id="remover" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
-            <h3>Remover produto?</h3>
-            <p>O produto será removido da base de dados.</p>
-                <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" onclick="remover(event)">Remover</a>
-                <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancelar</a>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>

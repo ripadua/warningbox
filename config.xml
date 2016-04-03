@@ -1,18 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.warningbox" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    
     <name>WarningBox</name>
-   
+    
     <description>
         Controle o vencimento de seus produtos
     </description>
-   
+    
     <author email="support@phonegap.com" href="http://warningbox.com">
        Waltenes Jr.
     </author>
-   
+    
     <content src="login.html" />
-   
+    
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -28,7 +27,8 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
-  
+    <preference name="android-build-tool" value="gradle" />
+    
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -48,16 +48,14 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 
-    <gap:config-file platform="android" parent="/manifest">
+    <gap:config-file parent="/manifest" platform="android">
         <uses-permission name="android.permission.CAMERA" />
     </gap:config-file>
 
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-
-    <feature name="Camera">
+    <feature name="http://api.phonegap.com/1.0/camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-  
+
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
@@ -72,7 +70,7 @@
     <icon gap:platform="webos" src="www/res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="www/res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="www/res/icon/windows-phone/icon-173-tile.png" />
-   
+
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
@@ -88,6 +86,10 @@
     <access origin="*" />
     
     <plugin name="cordova-plugin-whitelist" version="1" />
+
+    <plugin name="phonegap-plugin-push" source="npm">
+        <param name="SENDER_ID" value="1016161579638" />
+    </plugin>
     
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -99,8 +101,12 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+    
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    
+    <engine name="browser" spec="~4.0.0" />
+    <engine name="android" spec="~4.1.1" />
 </widget>
