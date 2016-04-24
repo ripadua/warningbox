@@ -17,7 +17,7 @@ function salvar(e) {
 
     if (passouValidacao) {
         $.mobile.loading("show");
-        $.post("https://warningbox-ripadua.c9users.io/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
+        $.post(localStorage.servidor + "/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
             alert('Produto inserido com sucesso');
             window.location.href='../index.html';
         }).fail(function (msg) {
@@ -41,9 +41,11 @@ function accessCamera(e) {
     var options = {
 	    destinationType: Camera.DestinationType.DATA_URL,
 	    sourceType: Camera.PictureSourceType.CAMERA,
-        quality: 25,
+        quality: 50,
         correctOrientation: true,
-        saveToPhotoAlbum: true
+        saveToPhotoAlbum: true,
+        targetWidth: 300,
+        targetHeight: 300
 	}
 	navigator.camera.getPicture(camSuccess, camError, options);
 }
@@ -53,8 +55,10 @@ function accessCameraAlbum(e) {
     var options = {
 	    destinationType: Camera.DestinationType.DATA_URL,
 	    sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-        quality: 25,
-        correctOrientation: true
+        quality: 50,
+        correctOrientation: true,
+        targetWidth: 300,
+        targetHeight: 300
 	}
 	navigator.camera.getPicture(camSuccess, camError, options);
 }

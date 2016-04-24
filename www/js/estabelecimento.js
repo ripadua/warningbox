@@ -24,7 +24,7 @@ function cancelar() {
 function carregar() {
 	$.mobile.loading("show");
     $("#usuario_id").val(localStorage.usuario_id);
-    $.get("http://warningbox-ripadua.c9users.io/consultarEstabelecimentosPorUsuario?usuario=" + localStorage.email).done(function (msg) {
+    $.get(localStorage.servidor + "/consultarEstabelecimentosPorUsuario?usuario=" + localStorage.email).done(function (msg) {
         if (msg.length == 0) {
             mostrarForm();
         } else {
@@ -44,7 +44,7 @@ function carregar() {
 
 function salvar() {
     $.mobile.loading("show");
-    $.post('http://warningbox-ripadua.c9users.io/estabelecimentos.json', $("#formEstabelecimento").serializeArray()).done(function (msg) {
+    $.post(localStorage.servidor + '/estabelecimentos.json', $("#formEstabelecimento").serializeArray()).done(function (msg) {
         alert('Estabelecimento inserido com sucesso');
         localStorage.estabelecimento_id = msg.id; 
         window.location.href='estabelecimento.html';

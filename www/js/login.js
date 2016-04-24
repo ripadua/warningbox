@@ -19,7 +19,10 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-    	if(localStorage.email != undefined) {
+    	localStorage.servidor = "http://www.warningbox.com.br/backend";
+        localStorage.registrationid = undefined;
+
+        if(localStorage.email != undefined) {
     		$("#email").val(localStorage.email);
     		localStorage.email = "";
     	}
@@ -56,10 +59,10 @@ function entrar(e) {
 		alert('Insira o seu endereço de e-mail para entrar.');
 	} else {
 		$.mobile.loading("show");
-		$.get("http://warningbox-ripadua.c9users.io/consultarUsuarioPorEmail?email=" + email).done(function (msg) {
+		$.get(localStorage.servidor + "/consultarUsuarioPorEmail?email=" + email).done(function (msg) {
 			if (msg == '0') {
 				if (confirm('O e-mail informado não foi encontrado na base de dados. Clique "OK" para confirmar o cadastro.')) {
-					$.post("http://warningbox-ripadua.c9users.io/usuarios.json", $("#formlogin").serializeArray()).done(function (msg) {
+					$.post(localStorage.servidor + "/usuarios.json", $("#formlogin").serializeArray()).done(function (msg) {
 						alert("E-mail registrado com sucesso.");
 						localStorage.usuario_id = msg.id;
 						localStorage.email = email;
@@ -72,14 +75,17 @@ function entrar(e) {
 					alert('Cadastro cancelado.')
 				}
 			} else {
-				localStorage.email = email;
-				localStorage.usuario_id = msg;
-				window.location.href='paginas/estabelecimento.html';
+                var data = {_method: 'put', usuario: {id: msg, email: email, idpush: localStorage.registrationid}}
+                $.post(localStorage.servidor + "/usuarios/" + msg + ".json", data).done(function (msg) {   
+        				localStorage.email = email;
+        				localStorage.usuario_id = msg;
+        				window.location.href='paginas/estabelecimento.html';
+                    });
 			};
 			$.mobile.loading("hide");
 		}).fail(function (msg) {
 			$.mobile.loading("hide");
-			alert('Sem conexão com a internet. Por favor conecte ao 3G ou Wi-Fi e tente novamente.');
+			alert('Não foi possivel conectar ao servidor. Por favor tente novamente.');
 		});
 	}
 }

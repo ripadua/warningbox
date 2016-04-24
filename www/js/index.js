@@ -53,7 +53,7 @@ var app = {
 function listar() {
     var estabelecimento_id = localStorage.estabelecimento_id;
     $.mobile.loading("show");
-	$.get("http://warningbox-ripadua.c9users.io/vencidos.json?estabelecimento_id=" + estabelecimento_id).done(function (msg) {
+	$.get(localStorage.servidor + "/vencidos.json?estabelecimento_id=" + estabelecimento_id).done(function (msg) {
         var listview = $('#listview');
         var popup = $('#popup');
         var maxHeight = $( window ).height() - 60 + "px";
@@ -64,12 +64,15 @@ function listar() {
         } else {
             $("#nenhumvencido").hide();
             for (var i = 0; i < msg.length; i++) {
+                var ano = msg[i].dataVencimento.substr(0, 4);
+                var mes = msg[i].dataVencimento.substr(5, 2);
+                var dia = msg[i].dataVencimento.substr(8, 2);
                 var novoproduto = 
                     '<li produto="' + msg[i].id + '" >' +
-                        '<a href="#popupProduto' + msg[i].id + '" data-rel="popup">' +
+                        '<a href="#popupProduto' + msg[i].id + '" data-rel="popup" data-position-to="window">' +
                             '<img src="data:image/jpeg;base64,' + msg[i].imagem + '" />' +
                             '<p>Data de Validade: </p>' +
-                            '<h4>' + new Date(msg[i].dataVencimento).toLocaleDateString('pt-BR') + '</h4>' +
+                            '<h4>' + dia + '/' + mes + '/' + ano + '</h4>' +
                         '</a>' +
                         '<a href="#" onclick="remover(event)">Remover produto</a>' +
                     '</li>';
@@ -98,7 +101,7 @@ function remover(e) {
         var elem = e.target.parentElement;
         elem.parentNode.removeChild(elem);
         $.ajax({
-            url: 'http://warningbox-ripadua.c9users.io/vencimentos/' + idProduto + '.json',
+            url: localStorage.servidor + '/vencimentos/' + idProduto + '.json',
             type: 'DELETE',
             success: function(result) {
                 alert('Produto removido com sucesso.');

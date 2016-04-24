@@ -22,7 +22,7 @@ function cancelar() {
 }
 
 function listar() {
-	$.get("http://warningbox-ripadua.c9users.io/marcas.json").done(function (msg) {
+	$.get(localStorage.servidor + "/marcas.json").done(function (msg) {
         $('#listviewMarcas').empty();
         for (var i = 0; i < msg.length; i++) {
 		  $('#listviewMarcas').append('<li>' + msg[i].nomeMarca + '</li>');
@@ -32,7 +32,7 @@ function listar() {
 }
 
 function salvar() {
-    $.post('http://warningbox-ripadua.c9users.io/marcas.json', $("#formMarca").serializeArray()).done(function (data) {
+    $.post(localStorage.servidor + '/marcas.json', $("#formMarca").serializeArray()).done(function (data) {
         listar();
         mostrarLista();
         alert('Marca inserida com sucesso');
