@@ -56,6 +56,9 @@ function salvar() {
 
 function selecionar(estabelecimento_id) {
     localStorage.estabelecimento_id = estabelecimento_id;
-    window.location.href = '../index.html';
+    $.get(localStorage.servidor + '/estabelecimentos/' + estabelecimento_id + '.json').done(function (msg) {
+        localStorage.estabelecimento_nome = msg.nome;
+    });
+    window.location.href = 'avencer.html';
 }
 

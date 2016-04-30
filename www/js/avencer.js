@@ -1,3 +1,9 @@
+function carregar() {
+	$(document).ready(function() {
+		$("#estabelecimento").text(localStorage.estabelecimento_nome);
+	});
+}
+
 function listar() {
 	$(document).ready(function() {
 		$.mobile.loading("show");

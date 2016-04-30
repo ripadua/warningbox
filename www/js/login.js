@@ -30,7 +30,8 @@ var app = {
         console.log('Received Event: ' + id);
         var push = PushNotification.init({
             android: {
-                senderID: "1016161579638"
+                senderID: "1016161579638",
+                sound: true
             }
         });
 

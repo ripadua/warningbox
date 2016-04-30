@@ -19,7 +19,13 @@ function salvar(e) {
         $.mobile.loading("show");
         $.post(localStorage.servidor + "/vencimentos.json", $("#formVencimento").serializeArray()).done(function (data) {
             alert('Produto inserido com sucesso');
-            window.location.href='../index.html';
+            var paginaDestino = "";
+            if (new Date(data) > new Date()) {
+                paginaDestino = 'avencer.html';
+            } else {
+                paginaDestino = '../index.html';
+            }
+            window.location.href= paginaDestino;
         }).fail(function (msg) {
             alert('Ocorreu um erro ao salvar o produto. Por favor tente novamente.');
             $.mobile.loading("hide");
