@@ -43,7 +43,7 @@ var app = {
         });
 
         push.on('notification', function(data) {
-            
+
         });
 
         push.on('error', function(e) {
@@ -79,7 +79,7 @@ function entrar(e) {
                 var data = {_method: 'put', usuario: {id: msg, email: email, idpush: localStorage.registrationid}}
                 $.post(localStorage.servidor + "/usuarios/" + msg + ".json", data).done(function (msg) {   
         				localStorage.email = email;
-        				localStorage.usuario_id = msg;
+        				localStorage.usuario_id = msg.id;
         				window.location.href='paginas/estabelecimento.html';
                     });
 			};
