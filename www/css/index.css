@@ -149,3 +149,22 @@ h1 {
     -webkit-border-radius: .3125em;
     border-radius: .3125em;
 }
+
+@media (max-width: 959px){
+	h2{
+	    font-weight: bold !important;
+    	font-size: 45px !important;
+	}
+}
+@media (max-width: 767px){
+    h2{
+		font-weight: bold !important;
+		font-size: 35px !important;
+	}
+}
+@media (max-width: 479px){
+    h2{
+	    font-weight: bold !important;
+    	font-size: 25px !important;
+	}
+}
