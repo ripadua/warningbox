@@ -32,6 +32,7 @@ button.ui-btn, .ui-controlgroup-controls button.ui-btn-icon-notext {
     -moz-appearance: none;
     width: 0px;
     height: 70px;
+    color: #003366 !important;
 }
 
 .ui-mobile label {
@@ -39,6 +40,7 @@ button.ui-btn, .ui-controlgroup-controls button.ui-btn-icon-notext {
     margin: 0 0 .4em;
     font-weight: bold !important;
     font-size: 30px !important;
+    color: #003366 !important;
 }
 
 h1 {
@@ -49,6 +51,7 @@ h1 {
 h2 {
     font-weight: bold !important;
     font-size: 50px !important;
+    color: #003366 !important;
 }
 
 body {
@@ -148,6 +151,27 @@ h1 {
 #custom-border-radius .ui-btn-icon-notext.ui-corner-all {
     -webkit-border-radius: .3125em;
     border-radius: .3125em;
+}
+
+.ui-bar-b, .ui-page-theme-b .ui-bar-inherit, html .ui-bar-b .ui-bar-inherit, html .ui-body-b .ui-bar-inherit, html body .ui-group-theme-b .ui-bar-inherit {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+}
+
+.ui-page-theme-b .ui-btn, html .ui-bar-b .ui-btn, html .ui-body-b .ui-btn, html body .ui-group-theme-b .ui-btn, html head+body .ui-btn.ui-btn-b, .ui-page-theme-b .ui-btn:visited, html .ui-bar-b .ui-btn:visited, html .ui-body-b .ui-btn:visited, html body .ui-group-theme-b .ui-btn:visited, html head+body .ui-btn.ui-btn-b:visited {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+}
+
+.ui-body-b, .ui-page-theme-b .ui-body-inherit, html .ui-bar-b .ui-body-inherit, html .ui-body-b .ui-body-inherit, html body .ui-group-theme-b .ui-body-inherit, html .ui-panel-page-container-b {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+}
+
+.ui-input-text input, .ui-input-search input {
+    color: #003366 !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
 }
 
 @media (max-width: 959px){
