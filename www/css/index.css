@@ -171,6 +171,11 @@ h1 {
         font-weight: bold !important;
     	font-size: 30px !important;
     }
+    
+    h1 {
+        font-weight: bold !important;
+        font-size: 20px !important;
+    }
 }
 @media (max-width: 479px){
     h2{
@@ -181,5 +186,10 @@ h1 {
     .ui-mobile label{
         font-weight: bold !important;
     	font-size: 15px !important;
+    }
+    
+    h1 {
+        font-weight: bold !important;
+        font-size: 15px !important;
     }
 }
