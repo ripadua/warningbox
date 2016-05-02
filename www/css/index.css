@@ -155,16 +155,31 @@ h1 {
 	    font-weight: bold !important;
     	font-size: 45px !important;
 	}
+    
+    .ui-mobile label{
+        font-weight: bold !important;
+    	font-size: 40px !important;
+    }
 }
 @media (max-width: 767px){
     h2{
 		font-weight: bold !important;
 		font-size: 35px !important;
 	}
+    
+    .ui-mobile label{
+        font-weight: bold !important;
+    	font-size: 30px !important;
+    }
 }
 @media (max-width: 479px){
     h2{
 	    font-weight: bold !important;
     	font-size: 25px !important;
 	}
+    
+    .ui-mobile label{
+        font-weight: bold !important;
+    	font-size: 20px !important;
+    }
 }
